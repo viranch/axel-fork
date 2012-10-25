@@ -68,11 +68,6 @@ msgstr "Ошибка в соединении %i! Соединение закры
 msgid "Connection %i unexpectedly closed"
 msgstr "Соединение %i неожиданно закрылось"
 
-#: axel.c:335 axel.c:352
-#, c-format
-msgid "Connection %i finished"
-msgstr "Соединение %i закончилось"
-
 #: axel.c:364
 msgid "Write error!"
 msgstr "Ошибка записи!"

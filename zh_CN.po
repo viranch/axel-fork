@@ -71,11 +71,6 @@ msgstr "连接 %i 有错误！ 连接中断"
 msgid "Connection %i unexpectedly closed"
 msgstr "连接 %i 被异常中断"
 
-#: axel.c:335 axel.c:352
-#, c-format
-msgid "Connection %i finished"
-msgstr "连接 %i 结束"
-
 #: axel.c:364
 msgid "Write error!"
 msgstr "写错误！"

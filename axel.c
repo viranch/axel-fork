@@ -380,10 +380,6 @@ void axel_do( axel_t *axel )
 				{
 					axel_message( axel, _("Connection %i unexpectedly closed"), i );
 				}
-				else
-				{
-					axel_message( axel, _("Connection %i finished"), i );
-				}
 			}
 			if( !axel->conn[0].supported )
 			{
@@ -397,10 +393,6 @@ void axel_do( axel_t *axel )
 		remaining = axel->conn[i].lastbyte - axel->conn[i].currentbyte + 1;
 		if( remaining < size )
 		{
-			if( axel->conf->verbose )
-			{
-				axel_message( axel, _("Connection %i finished"), i );
-			}
 			axel->conn[i].enabled = 0;
 			conn_disconnect( &axel->conn[i] );
 			size = remaining;

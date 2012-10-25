@@ -69,11 +69,6 @@ msgstr "Fehler bei Verbindung %i! Verbindung getrennt"
 msgid "Connection %i unexpectedly closed"
 msgstr "Verbindung %i unerwartet getrennt"
 
-#: axel.c:335 axel.c:352
-#, c-format
-msgid "Connection %i finished"
-msgstr "Verbindung %i beendet"
-
 #: axel.c:364
 msgid "Write error!"
 msgstr "Schreibfehler!"

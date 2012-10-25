@@ -68,11 +68,6 @@ msgstr "Fout op verbinding %i! Verbinding gesloten"
 msgid "Connection %i unexpectedly closed"
 msgstr "Verbinding %i onverwachts gesloten"
 
-#: axel.c:335 axel.c:352
-#, c-format
-msgid "Connection %i finished"
-msgstr "Verbinding %i klaar"
-
 #: axel.c:364
 msgid "Write error!"
 msgstr "Schrijffout!"
