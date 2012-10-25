@@ -33,6 +33,52 @@ static void axel_divide( axel_t *axel );
 
 static char *buffer = NULL;
 
+char* human_readable(long long n)
+{
+  static char powers[] =
+  {
+    'K',                      /* kilobyte, 2^10 bytes */
+    'M',                      /* megabyte, 2^20 bytes */
+    'G',                      /* gigabyte, 2^30 bytes */
+    'T',                      /* terabyte, 2^40 bytes */
+    'P',                      /* petabyte, 2^50 bytes */
+    'E',                      /* exabyte,  2^60 bytes */
+  };
+  size_t j;
+  static char buf[8];
+
+  /* If the quantity is smaller than 1K, just print it. */
+  if (n < 1024)
+  {
+    snprintf( buf, sizeof (buf), "%lld bytes", n );
+    return buf;
+  }
+  else
+  {
+
+    /* Loop over powers, dividing N with 1024 in each iteration.  This
+       works unchanged for all sizes of wgint, while still avoiding
+       non-portable `long double' arithmetic.  */
+    for (j = 0; j < countof (powers); j++)
+    {
+      /* At each iteration N is greater than the *subsequent* power.
+         That way N/1024.0 produces a decimal number in the units of
+         *this* power.  */
+      if ((n / 1024) < 1024 || j == countof (powers) - 1)
+      {
+        double val = n / 1024.0;
+        /* Print values smaller than 10 with one decimal digits, and
+           others without any decimals.  */
+        snprintf( buf, sizeof (buf), "%.*f %cB",
+                 val < 10 ? 1 : 0, val, powers[j] );
+        return buf;
+      }
+      n /= 1024;
+    }
+  }
+  return NULL;
+}
+
 /* Create a new axel_t structure					*/
 axel_t *axel_new( conf_t *conf, int count, void *url )
 {
@@ -41,7 +87,7 @@ axel_t *axel_new( conf_t *conf, int count, void *url )
 	url_t *u;
 	char *s;
 	int i;
-	
+
 	axel = malloc( sizeof( axel_t ) );
 	memset( axel, 0, sizeof( axel_t ) );
 	*axel->conf = *conf;
@@ -123,7 +169,9 @@ axel_t *axel_new( conf_t *conf, int count, void *url )
 	if( ( axel->size = axel->conn[0].size ) != INT_MAX )
 	{
 		if( axel->conf->verbose > 0 )
-			axel_message( axel, _("File size: %lld bytes"), axel->size );
+    {
+      axel_message( axel, _("File size: %s"), human_readable( axel->size ) );
+    }
 	}
 	
 	/* Wildcards in URL --> Get complete filename			*/
@@ -138,6 +186,7 @@ int axel_open( axel_t *axel )
 {
 	int i, fd;
 	long long int j;
+  char done[8], left[8];
 	
 	if( axel->conf->verbose > 0 )
 		axel_message( axel, _("Opening output file %s"), axel->filename );
@@ -168,8 +217,9 @@ int axel_open( axel_t *axel )
 		for( i = 0; i < axel->conf->num_connections; i ++ )
 			read( fd, &axel->conn[i].currentbyte, sizeof( axel->conn[i].currentbyte ) );
 
-		axel_message( axel, _("State file found: %lld bytes downloaded, %lld to go."),
-			axel->bytes_done, axel->size - axel->bytes_done );
+    strncpy(done, human_readable(axel->bytes_done), sizeof(done));
+    strncpy(left, human_readable(axel->size - axel->bytes_done), sizeof(left));
+		axel_message( axel, _("State file found: %s downloaded, %s to go."), done, left );
 		
 		close( fd );
 		

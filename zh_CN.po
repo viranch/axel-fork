@@ -21,8 +21,8 @@ msgstr "无法解析URL\n"
 
 #: axel.c:126
 #, fuzzy, c-format
-msgid "File size: %lld bytes"
-msgstr "文件大小: %i 字节"
+msgid "File size: %s"
+msgstr "文件大小: %s"
 
 #: axel.c:143
 #, c-format
@@ -35,8 +35,8 @@ msgstr "服务器不支持，开始一个连接。"
 
 #: axel.c:171
 #, fuzzy, c-format
-msgid "State file found: %lld bytes downloaded, %lld to go."
-msgstr "找到状态文件： %i 字节已下载，继续下载 %i 字节。"
+msgid "State file found: %s downloaded, %s to go."
+msgstr "找到状态文件： %s 已下载，继续下载 %s。"
 
 #: axel.c:178 axel.c:190
 msgid "Error opening local file"

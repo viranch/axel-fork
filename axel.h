@@ -89,6 +89,14 @@ typedef message_t if_t;
 #define min( a, b )		( (a) < (b) ? (a) : (b) )
 #define max( a, b )		( (a) > (b) ? (a) : (b) )
 
+/* The number of elements in an array.  For example:
+   static char a[] = "foo";     -- countof(a) == 4 (note terminating \0)
+   int a[5] = {1, 2};           -- countof(a) == 5
+   char *a[] = {                -- countof(a) == 3
+     "foo", "bar", "baz"
+   }; */
+#define countof(array) (sizeof (array) / sizeof ((array)[0]))
+
 typedef struct
 {
 	conn_t *conn;

@@ -21,8 +21,8 @@ msgstr "Kann URL nicht parsen.\n"
 
 #: axel.c:126
 #, fuzzy, c-format
-msgid "File size: %lld bytes"
-msgstr "Dateigröße: %i Bytes"
+msgid "File size: %s"
+msgstr "Dateigröße: %s"
 
 #: axel.c:143
 #, c-format
@@ -35,8 +35,8 @@ msgstr "Server versteht REST nicht, Neustart mit einer Verbindung."
 
 #: axel.c:171
 #, fuzzy, c-format
-msgid "State file found: %lld bytes downloaded, %lld to go."
-msgstr "Status-Datei gefunden: %i Bytes übertragen, %i verbleiben."
+msgid "State file found: %s downloaded, %s to go."
+msgstr "Status-Datei gefunden: %s übertragen, %s verbleiben."
 
 #: axel.c:178 axel.c:190
 msgid "Error opening local file"

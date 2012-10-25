@@ -20,8 +20,8 @@ msgstr "Kan URL niet verwerken.\n"
 
 #: axel.c:126
 #, fuzzy, c-format
-msgid "File size: %lld bytes"
-msgstr "Bestandsgrootte: %i bytes"
+msgid "File size: %s"
+msgstr "Bestandsgrootte: %s"
 
 #: axel.c:143
 #, c-format
@@ -34,8 +34,8 @@ msgstr "Server niet ondersteund, opnieuw beginnen met 1 verbinding."
 
 #: axel.c:171
 #, fuzzy, c-format
-msgid "State file found: %lld bytes downloaded, %lld to go."
-msgstr ".st bestand gevonden: %i bytes gedownload, %i te gaan."
+msgid "State file found: %s downloaded, %s to go."
+msgstr ".st bestand gevonden: %s gedownload, %s te gaan."
 
 #: axel.c:178 axel.c:190
 msgid "Error opening local file"

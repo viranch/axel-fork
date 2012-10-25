@@ -19,8 +19,8 @@ msgstr "Невозможно обработать URL.\n"
 
 #: axel.c:126
 #, c-format
-msgid "File size: %lld bytes"
-msgstr "Размер файла: %lld байта(ов)"
+msgid "File size: %s"
+msgstr "Размер файла: %s"
 
 #: axel.c:143
 #, c-format
@@ -33,8 +33,8 @@ msgstr "Сервер не поддерживается, начинаем зан�
 
 #: axel.c:171
 #, c-format
-msgid "State file found: %lld bytes downloaded, %lld to go."
-msgstr "Найден файл состояния: %lld байта(ов) скачано, %lld осталось."
+msgid "State file found: %s downloaded, %s to go."
+msgstr "Найден файл состояния: %s скачано, %s осталось."
 
 #: axel.c:178 axel.c:190
 msgid "Error opening local file"
